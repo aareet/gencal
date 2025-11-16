@@ -4,8 +4,13 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
 
 # Define start and end dates
-start_date = datetime.date(2025, 10, 28)
-end_date = start_date + datetime.timedelta(days=29)
+# start_date = datetime.date(2025, 10, 28)
+# end_date = start_date + datetime.timedelta(days=29)
+
+# Prompt user for start date input in YYYY-MM-DD format
+start_date_str = input("Enter the start date (YYYY-MM-DD): ")
+start_date = datetime.datetime.strptime(start_date_str, "%Y-%m-%d").date()
+end_date = start_date + datetime.timedelta(days=30)
 
 # Create PDF
 file_path = "30_day_calendar.pdf"
